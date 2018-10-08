@@ -10,17 +10,26 @@ import com.example.hemapalanisamy.smartbasecode.ui.main.MainFragment
 import com.example.hemapalanisamy.smartbasecode.utils.AppConstant
 import com.example.hemapalanisamy.smartbasecode.utils.PreferenceHelper.defaultPrefs
 import com.example.hemapalanisamy.smartbasecode.utils.PreferenceHelper.get
-import com.example.hemapalanisamy.smartbasecode.utils.PreferenceHelper.set
+import com.example.hemapalanisamy.smartbasecode.utils.RSACryptography
+
 class MainActivity : AppCompatActivity() {
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity)
 
         val prefs = defaultPrefs(this)
-        prefs[AppConstant.defaultValue] = "any_type_of_value" //setter
-        val value: String? = prefs[AppConstant.defaultValue] //getter
-        Log.e("value",value.toString())
+
+        RSACryptography.generateKeyPair(this, prefs)
+
+        val publicKey: String? = prefs[AppConstant.PUBLIC_KEY] //getter
+
+        val encryptedtext : String?  = RSACryptography.encrypt("text",publicKey)
+           Log.e("Text",encryptedtext)
+        val decryptedtext : String?  = RSACryptography.decrypt(encryptedtext)
+        Log.e("decryptedtext",decryptedtext)
+
 
         if (savedInstanceState == null) {
             addFragment(AppConstant.linearRecyclerView)
@@ -51,10 +60,6 @@ class MainActivity : AppCompatActivity() {
             }
             R.id.staggered -> {
                 addFragment(AppConstant.staggeredRecyclerView)
-                true
-            }
-            R.id.carousel -> {
-                addFragment(AppConstant.carouselRecyclerView)
                 true
             }
             else -> super.onOptionsItemSelected(item)

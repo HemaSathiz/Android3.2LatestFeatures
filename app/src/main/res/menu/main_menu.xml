@@ -10,7 +10,5 @@
     <item android:id="@+id/staggered"
         android:icon="@drawable/ic_launcher_background"
         android:title="RecyclerviewStaggered" />
-    <item android:id="@+id/carousel"
-        android:icon="@drawable/ic_launcher_background"
-        android:title="RecyclerviewCarousel " />
+
 </menu>

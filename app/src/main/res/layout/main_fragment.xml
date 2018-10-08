@@ -8,25 +8,27 @@
 
         <variable
             name="user"
-            type="com.example.hemapalanisamy.smartbasecode.viewmodel.MainViewModel" />
+            type="com.example.hemapalanisamy.smartbasecode.ui.main.viewmodel.MainViewModel" />
     </data>
 
     <RelativeLayout
         android:id="@+id/main"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/light_grey">
 
         <RelativeLayout
             android:id="@+id/rel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@android:color/darker_gray">
+            >
 
             <com.yarolegovich.discretescrollview.DiscreteScrollView
                 android:id="@+id/defaultitem"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:dsv_orientation="horizontal" />
+                app:dsv_orientation="horizontal"
+                 />
         </RelativeLayout>
 
         <androidx.recyclerview.widget.RecyclerView

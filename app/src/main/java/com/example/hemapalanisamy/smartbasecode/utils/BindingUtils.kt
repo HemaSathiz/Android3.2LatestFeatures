@@ -5,7 +5,7 @@ import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.hemapalanisamy.kotlinsample.restclient.Photos
-import com.example.hemapalanisamy.smartbasecode.ui.adapter.RecyclerviewAdapter
+import com.example.hemapalanisamy.smartbasecode.ui.main.adapter.ImageRecyclerviewAdapter
 
 class BindingUtils {
     companion object {
@@ -13,12 +13,13 @@ class BindingUtils {
         @JvmStatic @BindingAdapter("adapter")
 
         fun addBlogItems(recyclerView: RecyclerView, blogs: List<Photos>?) {
-            val adapter = recyclerView.adapter as RecyclerviewAdapter
+            val adapter = recyclerView.adapter as ImageRecyclerviewAdapter
             if (adapter != null && blogs!=null && !blogs.isEmpty()) {
                 adapter.clearItems()
                 adapter.addItems(blogs)
             }
         }
+
 
         @JvmStatic @BindingAdapter("app:imageResource")
         fun loadImage(view: ImageView, url: String) {

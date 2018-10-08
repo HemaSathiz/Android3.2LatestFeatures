@@ -13,23 +13,24 @@ import com.example.hemapalanisamy.kotlinsample.restclient.Photos
 import com.example.hemapalanisamy.smartbasecode.R
 import com.example.hemapalanisamy.smartbasecode.databinding.MainFragmentBinding
 import com.example.hemapalanisamy.smartbasecode.ui.MainNavigator
-import com.example.hemapalanisamy.smartbasecode.ui.adapter.RecyclerviewAdapter
+import com.example.hemapalanisamy.smartbasecode.ui.main.adapter.ImageRecyclerviewAdapter
+import com.example.hemapalanisamy.smartbasecode.ui.main.viewmodel.MainViewModel
 import com.example.hemapalanisamy.smartbasecode.utils.AppConstant
 import com.example.hemapalanisamy.smartbasecode.utils.InfiniteCarouselTransformer
-import com.example.hemapalanisamy.smartbasecode.viewmodel.MainViewModel
 import com.yarolegovich.discretescrollview.DiscreteScrollView
 import com.yarolegovich.discretescrollview.InfiniteScrollAdapter
 
 
-class MainFragment : androidx.fragment.app.Fragment(),MainNavigator, DiscreteScrollView.OnItemChangedListener<RecyclerviewAdapter.ViewHolder> {
-    override fun onCurrentItemChanged(p0: RecyclerviewAdapter.ViewHolder?, p1: Int) {
+class MainFragment : androidx.fragment.app.Fragment(),MainNavigator, DiscreteScrollView.OnItemChangedListener<ImageRecyclerviewAdapter.ViewHolder> {
+    override fun onCurrentItemChanged(p0: ImageRecyclerviewAdapter.ViewHolder?, p1: Int) {
 
         val realPosition = mInfiniteScrollWrapper.realCurrentPosition
 
     }
 
 
-    private lateinit var viewAdapter: RecyclerviewAdapter
+    private lateinit var viewAdapter: ImageRecyclerviewAdapter
+
     private lateinit var viewModel: MainViewModel
     lateinit var binding: MainFragmentBinding
     private lateinit var viewManager: RecyclerView.LayoutManager
@@ -79,23 +80,23 @@ class MainFragment : androidx.fragment.app.Fragment(),MainNavigator, DiscreteScr
 
 
     fun setUp() {
-        viewAdapter = RecyclerviewAdapter()
-        mInfiniteScrollWrapper = InfiniteScrollAdapter.wrap(viewAdapter)
-        binding.defaultitem.adapter = mInfiniteScrollWrapper
+        viewAdapter = ImageRecyclerviewAdapter()
 
-        // Item transformer
-        binding.defaultitem.setItemTransformer(InfiniteCarouselTransformer())
+        if (!status.equals(AppConstant.linearRecyclerView)) {
+            mInfiniteScrollWrapper = InfiniteScrollAdapter.wrap(viewAdapter)
+            binding.defaultitem.adapter = mInfiniteScrollWrapper
 
-        // Item change listener
-        binding.defaultitem.addOnItemChangedListener(this)
+            // Item transformer
+            binding.defaultitem.setItemTransformer(InfiniteCarouselTransformer())
 
+            // Item change listener
+            binding.defaultitem.addOnItemChangedListener(this)
 
+        }
         binding.recyclerView.layoutManager = viewManager
         binding.recyclerView.itemAnimator = DefaultItemAnimator()
         binding.recyclerView.adapter = viewAdapter
         binding.user = viewModel
-
-
 
     }
 

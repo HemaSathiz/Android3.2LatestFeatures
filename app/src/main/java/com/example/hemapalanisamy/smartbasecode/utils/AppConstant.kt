@@ -7,7 +7,9 @@ class AppConstant {
         val gridRecyclerView = "GRID_RECYCLER_VIEW"
         val staggeredRecyclerView = "STAGGERED_RECYCLER_VIEW"
         val carouselRecyclerView = "CAROUSEL_RECYCLER_VIEW"
-        val defaultValue = "DEFAULT_VALUE"
+        var PRIVATE_KEY = "PRIVATE_KEY"
+        var PUBLIC_KEY = "PUBLIC_KEY"
+
 
     }
 }

@@ -1,4 +1,4 @@
-package com.example.hemapalanisamy.smartbasecode.ui.adapter
+package com.example.hemapalanisamy.smartbasecode.ui.main.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -8,16 +8,16 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.hemapalanisamy.kotlinsample.restclient.Photos
 import com.example.hemapalanisamy.smartbasecode.R
 import com.example.hemapalanisamy.smartbasecode.databinding.ItemlistPhotosBinding
-import com.example.hemapalanisamy.smartbasecode.viewmodel.ItemListPhotosViewModel
+import com.example.hemapalanisamy.smartbasecode.ui.main.viewmodel.ItemListPhotosViewModel
 
 
-class RecyclerviewAdapter :
-        RecyclerView.Adapter<RecyclerviewAdapter.ViewHolder>() {
+class ImageRecyclerviewAdapter :
+        RecyclerView.Adapter<ImageRecyclerviewAdapter.ViewHolder>() {
 
     private  val myDataset: ArrayList<Photos> =ArrayList()
 
     override fun onCreateViewHolder(parent: ViewGroup,
-                                    viewType: Int): RecyclerviewAdapter.ViewHolder {
+                                    viewType: Int): ImageRecyclerviewAdapter.ViewHolder {
         val binding : ItemlistPhotosBinding = DataBindingUtil.inflate<ViewDataBinding>(
                 LayoutInflater.from(parent.context),
                 R.layout.itemlist_photos, parent, false) as ItemlistPhotosBinding
@@ -49,7 +49,6 @@ class RecyclerviewAdapter :
         private lateinit var mBlogItemViewModel: ItemListPhotosViewModel
 
         fun bind(photos: Photos) {
-
             mBlogItemViewModel = ItemListPhotosViewModel(photos)
             itemListBinding.user = mBlogItemViewModel
             itemListBinding.executePendingBindings()

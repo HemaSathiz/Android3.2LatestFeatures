@@ -1,4 +1,4 @@
-package com.example.hemapalanisamy.smartbasecode.viewmodel
+package com.example.hemapalanisamy.smartbasecode.ui.main.viewmodel
 
 import androidx.databinding.ObservableArrayList
 import androidx.databinding.ObservableList
