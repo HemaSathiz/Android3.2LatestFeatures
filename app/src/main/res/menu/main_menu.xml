@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/linear"
+        android:icon="@drawable/ic_launcher_background"
+        android:title="RecyclerviewLinear"
+        android:showAsAction="ifRoom"/>
+    <item android:id="@+id/grid"
+        android:icon="@drawable/ic_launcher_background"
+        android:title="RecyclerviewGrid" />
+    <item android:id="@+id/staggered"
+        android:icon="@drawable/ic_launcher_background"
+        android:title="RecyclerviewStaggered" />
+    <item android:id="@+id/carousel"
+        android:icon="@drawable/ic_launcher_background"
+        android:title="RecyclerviewCarousel " />
+</menu>

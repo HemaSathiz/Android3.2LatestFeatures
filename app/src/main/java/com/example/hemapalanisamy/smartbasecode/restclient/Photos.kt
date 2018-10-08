@@ -2,6 +2,7 @@ package com.example.hemapalanisamy.kotlinsample.restclient
 
 import java.util.*
 
+
 class Photos : Observable() {
     var id: String = " "
         set(value) {
@@ -35,4 +36,6 @@ class Photos : Observable() {
         setChanged()
         notifyObservers(field)
     }
+
+
 }
